@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlx4gn4vi4jke"]
+
+[ext_resource type="Texture2D" uid="uid://b3ggl5vtiuw0r" path="res://art/enemyWalking_1.png" id="1_b2nij"]
+
+[node name="Meteor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b2nij")
