@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlx4gn4vi4jke"]
+[gd_scene load_steps=4 format=3 uid="uid://dlx4gn4vi4jke"]
 
 [ext_resource type="Texture2D" uid="uid://b3ggl5vtiuw0r" path="res://art/enemyWalking_1.png" id="1_b2nij"]
+[ext_resource type="Script" path="res://scenes/meteor.gd" id="1_olil1"]
 
-[node name="Meteor" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32ab5"]
+size = Vector2(126, 100)
+
+[node name="Meteor" type="Area2D"]
+script = ExtResource("1_olil1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b2nij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -4)
+shape = SubResource("RectangleShape2D_32ab5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

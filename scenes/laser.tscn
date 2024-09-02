@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmghiyug1wihr"]
+
+[ext_resource type="Texture2D" uid="uid://mv7mtx1sofd0" path="res://art/enemyFlyingAlt_1.png" id="1_lbcng"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae8fj"]
+radius = 7.0
+height = 118.0
+
+[node name="Laser" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 2)
+scale = Vector2(0.100917, 0.75)
+texture = ExtResource("1_lbcng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ae8fj")

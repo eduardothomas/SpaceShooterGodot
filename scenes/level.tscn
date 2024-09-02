@@ -1,12 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://yk1e083c1gr8"]
+[gd_scene load_steps=6 format=3 uid="uid://yk1e083c1gr8"]
 
 [ext_resource type="PackedScene" uid="uid://d34dvept3g4ic" path="res://scenes/player.tscn" id="1_bsidg"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_qvqdw"]
 [ext_resource type="PackedScene" uid="uid://dlx4gn4vi4jke" path="res://scenes/meteor.tscn" id="2_ktk3r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54pcf"]
+size = Vector2(20, 768.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cixax"]
+size = Vector2(1298, 18)
+
 [node name="Level" type="Node2D"]
+script = ExtResource("1_qvqdw")
 
 [node name="Player" parent="." instance=ExtResource("1_bsidg")]
 position = Vector2(667, 368)
 
 [node name="Meteor" parent="." instance=ExtResource("2_ktk3r")]
 position = Vector2(163, 447)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-11, 382)
+shape = SubResource("RectangleShape2D_54pcf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(1288, 386)
+shape = SubResource("RectangleShape2D_54pcf")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(645, -9)
+shape = SubResource("RectangleShape2D_cixax")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(642, 773)
+shape = SubResource("RectangleShape2D_cixax")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
